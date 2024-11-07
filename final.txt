@@ -1,0 +1,266 @@
+REACTTTTT
+
+import {Component} from "react";
+export class ScoreBoard extends Component{
+constructor() //constructor is used to initialized the state
+{
+	super();
+	this.state={
+				score:0
+			}
+        this.incrementScore=this.incrementScore.bind(this);
+	}
+
+	incrementScore(){
+	this.setState({score:this.state.score+4});	
+	}
+	
+	render()// used to return user interface
+	{
+		return(
+		<div>
+			<h1>{this.state.score}</h1> //value of state will be decided by component dynamically
+			<button onClick={this.incrementScore}>+</button> 
+
+			<button>-</button>
+		</div>
+
+	);
+}
+}
+ 
+======================================================================================================
+
+jquery (SELECT ALL TAG.......)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <p>Welcome...!!!!!</p>
+    <h1>Hiiiiiii....!!</h1>
+    <h1>Hiieeee.... !!!!!</h1>
+    <p>Heeyyyy!!!!!!</p>
+    <img src="l1.jpg" alt="Image"><br>
+    <input id="a1" placeholder="Enter your name here">
+
+    <script>
+$('p').css('color','Green')</script>;
+   
+  
+</body>
+
+</html>
+
+
+=========================================================================
+==========================================================================
+ jquery
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+integrity="sha256-
+243
+u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>jQuery Event Handling Demo</h1>
+<button type="button" id="btn1" name="button" >Good Morning
+Warning</button>
+<button type="button" id="btn2" name="button">Good Evening
+Warning</button>
+<button type="button" id="btn3" name="button">Good Night
+Warning</button>
+<script>
+    $('#btn1').click(function(){
+        
+        $('#btn1').css('background-color','White')
+       alert("Good Morning")
+    })
+    $('#btn2').click(function(){
+        
+        $('#btn2').css('background-color','yellow')
+        alert("Good Evening")
+    })
+    $('#btn3').click(function(){
+        
+        $('#btn3').css('background-color','grey')
+        alert("Good Night")
+    })
+</script>
+</body>
+</html> 
+===================================================================================
+==================================================================================
+
+destructing arrays
+
+function getValues() {
+    return [1, 2, 3];
+  }
+  
+  const [x, y, z] = getValues();
+  console.log(y); 
+  
+  // Output: 1
+
+run==== node filename.js
+===============================================================
+
+spread operator
+
+const numbers = [1, 2, 3, 4, 5];
+
+function sum(x, y, z,w) {
+    return x + y + z+w;
+}
+// Using spread operator to pass array elements as arguments
+// const result = sum(...numbers);
+console.log(sum(...numbers)); //op 1+2+3+4=10
+
+run ==== node filename.js
+=================================================================
+
+ 1 nodejs sum prog
+
+const http=require('http');
+const PORT=4700;
+const server=http.createServer((request,response)=>{
+
+var x=4;
+var y=8;
+response.write(`sum of ${x} and ${y} is ${x+y}`);
+response.end();//this function will terminate the processing of server
+});
+server.listen(4700,()=>{
+console.log("SERVER IS LISTENING ON ${PORT}");
+});
+
+run===1 node filename.js (on terminal)
+      2 go on web browser http://127.0.0.1:portno (eg. 4700)
+==============================================================
+ 2 nodejs prog factorial
+
+const http=require('http');
+const myModule=require('./node2.js');
+const PORT=6100;
+const server=http.createServer((request,response)=>{
+const factorial =(a)=>{
+    if(a==1||a==0)
+    {
+        return 1;
+    }        
+    return a*factorial(a-1);
+}
+var s=3;
+var fact=factorial(s);
+// var z=myModule.sum(1,2);
+response.write(` ${fact}`);
+response.end();//this function will terminate the processing of server
+});
+server.listen(6100,()=>{
+console.log("SERVER IS LISTENING ON ${PORT}");
+});
+
+==============================================================
+ 3 nodejs prog prime no
+
+const http = require('http');  
+const PORT = 6100;
+
+const server = http.createServer((request, response) => {
+    let n = 17; 
+
+    if (n === 0 || n === 1) {
+        response.write(`Not prime`);
+        response.end(); 
+        return;
+    }
+
+    let count = 0;
+    for (let i = 2; i <= n/2; i++) {
+        if (n % i === 0) {
+            count++;
+            break;
+        }
+    }
+
+    if (count>0) {
+        response.write(`Not Prime`);
+    } else {
+        response.write(` Prime`);
+    }
+
+    response.end(); 
+});
+
+server.listen(PORT, () => {
+    console.log(`SERVER IS LISTENING ON ${PORT}`);
+});
+===================================================================
+ 4 nodejs armstrongno
+
+const http = require('http');  
+const PORT = 6100;
+
+const server = http.createServer((request, response) => {
+    let n = 153; 
+    let dig;
+    dig=n;
+    let rem,sum,rem1,rem2;
+    rem = n%10;
+    n = n/10;
+    rem1 = n%10;
+    n=n/10;
+    rem2 = n%10;
+    // n=n/10;
+    sum = rem1*rem1*+rem2*rem2*rem2+rem*rem*rem;
+   
+if(sum==dig){
+    response.write(`Armstrong`);
+}
+else{
+    response.write(`not Armstrong`);
+}
+response.end(); 
+
+});
+server.listen(PORT, () => {
+    console.log(`SERVER IS LISTENING ON ${PORT}`);
+});
+=======================================================================
+=======================================================================
+
+JSON
+  prog Create a JSON string from a JavaScript object
+ 
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Create a JSON string from a JavaScript object.</h2>
+<p id="demo"></p>
+
+<script>
+const obj = {name: "John", age: 30, city: "New York"};
+const myJSON = JSON.stringify(obj);
+document.getElementById("demo").innerHTML = myJSON;
+</script>
+
+</body>
+</html
+
+run ==1 write this code in .html file
+     2 copy path n run in brower
+=============================================================
+=========================================================================
