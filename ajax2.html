@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax 2 Para</title>
+    <style>
+        p{
+            background-color: blueviolet;
+            margin: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <input type="button" value="Click me" onclick="getData()">
+</body>
+<script>
+    function getData(){
+        const var1 = new XMLHttpRequest();
+        var1.open("GET", "https://jsonplaceholder.typicode.com/posts");
+        var1.send();
+        var1.onreadystatechange = () => {
+            if(var1.readyState == 4 && var1.status == 200){
+                const dataP = JSON.parse(var1.responseText);
+                console.log(dataP)
+                const cont = document.getElementById("container");
+                for(i=0; i<dataP.length;i++){
+                    const para = document.createElement("p");
+                    para.innerHTML = dataP[i].id + " " + dataP[i].title;
+                    cont.appendChild(para);
+                }
+            }
+        }
+    }
+</script>
+</html>

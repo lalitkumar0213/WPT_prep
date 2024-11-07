@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+</head>
+<body>
+    <form action="https://www.google.com" onsubmit="return validate()">
+        <label>Name: </label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" placeholder="Enter name" id="name1">
+        <span id="name-error"></span>
+        <br><br>
+        <label>Password: </label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="password" placeholder="Password" id="password1">
+        <span id="name-error"></span>
+        <br/><br/>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<script>
+    function validate(){
+        const name01 = document.getElementById("name1").value;
+        if(name01.length==0){
+            document.getElementById("name-error").innerHTML = "Name is required";
+            return false;
+        }
+        return true;
+
+    }
+</script>
+</html>

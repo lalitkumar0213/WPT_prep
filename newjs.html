@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Operations</title>
+    <style>
+        #container{
+            margin: 50px;
+            padding: 50px;
+            border: 2px solid black;
+            background-color: rgb(215, 161, 243);
+        }
+        #para{
+            border: 1px solid black;
+            padding: 20px;
+            background-color: white;
+        }
+        .buttons{
+            text-align: center;
+        }
+        button, input[type="color"]{
+            width: 50px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita ratione enim, ut modi laboriosam iure, ipsa impedit, at ea odit magni magnam rem quisquam! Perferendis numquam temporibus ut dicta obcaecati.</p>
+        <br/><br/>
+        <div class="buttons">
+            <button onclick="bold()"><b>B</b></button>
+        <button onclick="italic()"><i>I</i></button>
+        <button onclick="underline()"><u>U</u></button>
+        <button onclick="strike()"><del>S</del></button>
+        <button onclick="leftAlign()">Left</button>
+        <button onclick="rightAlign()">Right</button>
+        <button onclick="centerAlign()">Center</button>
+        <button onclick="justify()">Justify</button>
+        <button onclick="clearAll()">Clear</button> 
+        <input type="color">
+        <br/><br/><br/>
+        <!-- <button onclick="clear()">Clear</button> -->
+    </div>
+    </div>
+     
+    
+</body>
+<script>
+    var dummy = document.getElementById("para");
+    function bold(){
+        dummy.style.fontWeight = "bold";
+    }
+    function italic(){
+        dummy.style.fontStyle = "italic";
+    }
+    function underline(){
+        dummy.style.textDecoration = "underline";
+    }
+    function strike(){
+        dummy.style.textDecoration.strike();
+    }
+    function leftAlign(){
+        dummy.style.textAlign="left";
+    }
+    function rightAlign(){
+        dummy.style.textAlign="right";
+    }
+    function centerAlign(){
+        dummy.style.textAlign="center";
+    }
+    function justify(){
+        dummy.style.textAlign="justify";
+    }
+    function clearAll(){
+        dummy.style.textDecoration="none";
+        dummy.style.textAlign="left";
+        dummy.style.fontStyle = "normal";
+        dummy.style.fontWeight = "normal";
+
+    }
+    
+</script>
+</html>

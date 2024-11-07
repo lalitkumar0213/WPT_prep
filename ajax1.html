@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax 1</title>
+</head>
+<body>
+    <input type="button" value="Click me" onclick="ajaxCode()">
+    
+</body>
+<script>
+    function ajaxCode(){
+        const var1 = new XMLHttpRequest();
+        var1.open("GET", "https://jsonplaceholder.typicode.com/users");
+        var1.send();
+        var1.onreadystatechange = () => {
+            if(var1.readyState == 4 && var1.status == 200){
+                const data = JSON.parse(var1.responseText);
+                console.log(data);
+            }
+        }
+    }
+</script>   
+</html>
